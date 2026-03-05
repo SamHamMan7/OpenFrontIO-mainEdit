@@ -40,7 +40,6 @@ import {
   Unit,
   UnitInfo,
   UnitType,
-  UndergroundDeposit
 } from "./Game";
 import { GameMap, TileRef } from "./GameMap";
 import { ConquestUpdate, GameUpdate, GameUpdateType } from "./GameUpdates";
@@ -114,7 +113,6 @@ export class GameImpl implements Game {
 
   private _miniWaterGraph: AbstractGraph | null = null;
   private _miniWaterHPA: AStarWaterHierarchical | null = null;
-  public _undergroundDeposits: Map<TileRef, UndergroundDeposit>;
 
   constructor(
     private _humans: PlayerInfo[],
@@ -149,8 +147,6 @@ export class GameImpl implements Game {
       );
     }
 
-    this._undergroundDeposits = new Map<TileRef, UndergroundDeposit>();
-    this.generateDeposits();
 
     console.log(
       `[GameImpl] Constructor total: ${(performance.now() - constructorStart).toFixed(0)}ms`,
@@ -226,66 +222,6 @@ export class GameImpl implements Game {
         continue;
       }
       this.addPlayer(playerInfo, team);
-    }
-  }
-
-  private generateDeposits() {
-    const numTiles = this._map.width() * this._map.height();
-    const mapType = this._config.gameConfig().gameMap;
-
-    // Hardcoded logic for Map placement
-    // We roughly use a percentage coordinate area to drop resources
-    if (mapType === "World" || mapType === "Giant World Map") {
-      this.dropCluster(0.55, 0.40, 'Oil', 15); // Middle East
-      this.dropCluster(0.48, 0.25, 'Oil', 10); // Texas / Gulf
-      this.dropCluster(0.35, 0.15, 'Oil', 8);  // Alaska
-      this.dropCluster(0.60, 0.65, 'Oil', 10); // Russia
-      this.dropCluster(0.70, 0.80, 'Gold', 15); // Australia
-      this.dropCluster(0.65, 0.25, 'Gold', 10); // South America
-      this.dropCluster(0.60, 0.45, 'Gold', 10); // Africa
-    } else if (mapType === "Europe" || mapType === "Europe Classic") {
-      this.dropCluster(0.40, 0.35, 'Oil', 10); // North Sea Area
-      this.dropCluster(0.35, 0.85, 'Oil', 15); // Caspian/Caucasus
-      this.dropCluster(0.25, 0.55, 'Gold', 8); // Central Europe (Alps)
-      this.dropCluster(0.20, 0.85, 'Gold', 10); // Ural Mountains Area
-    } else {
-      // Basic fallback logic for other maps
-      const numDeposits = Math.floor(numTiles / 200);
-      let depositsPlaced = 0;
-      while (depositsPlaced < numDeposits) {
-        const tile = Math.floor(Math.random() * numTiles);
-        if (this._map.isLand(tile) && !this._undergroundDeposits.has(tile)) {
-          const isOil = Math.random() > 0.5;
-          this._undergroundDeposits.set(tile, {
-            type: isOil ? 'Oil' : 'Gold',
-            amount: 'infinite',
-          });
-          depositsPlaced++;
-        }
-      }
-    }
-  }
-
-  private dropCluster(percY: number, percX: number, type: 'Oil' | 'Gold', size: number) {
-    const w = this._map.width();
-    const h = this._map.height();
-    const centerX = Math.floor(w * percX);
-    const centerY = Math.floor(h * percY);
-
-    const centerTile = this._map.ref(centerX, centerY);
-
-    const tiles = Array.from(this._map.circleSearch(centerTile, size));
-
-    for (const tile of tiles) {
-      if (this._map.isLand(tile) && !this._undergroundDeposits.has(tile)) {
-        // Ensure we don't pack it 100% thick, add some noise
-        if (Math.random() > 0.4) {
-          this._undergroundDeposits.set(tile, {
-            type,
-            amount: 'infinite',
-          });
-        }
-      }
     }
   }
 
@@ -1304,13 +1240,11 @@ export class GameImpl implements Game {
       this.stats().goldWar(conqueror, conquered, gold);
     }
 
-    // Fix GameUpdateType.ConquestEvent oil missing property
     const transfer: ConquestUpdate = {
       type: GameUpdateType.ConquestEvent,
       conquerorId: conqueror.id(),
       conqueredId: conquered.id(),
       gold: gold, // Use the already calculated gold
-      oil: 0n, // Add the missing oil property
     };
     this.addUpdate(transfer);
   }

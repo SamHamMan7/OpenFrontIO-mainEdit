@@ -223,6 +223,8 @@ export const GameConfigSchema = z.object({
   infiniteGold: z.boolean(),
   infiniteTroops: z.boolean(),
   instantBuild: z.boolean(),
+  weightedAttacks: z.boolean().optional(),
+  disableBoats: z.boolean().optional(),
   disableNavMesh: z.boolean().optional(),
   randomSpawn: z.boolean(),
   maxPlayers: z.number().optional(),
@@ -299,6 +301,7 @@ export const AttackIntentSchema = z.object({
   type: z.literal("attack"),
   targetID: ID.nullable(),
   troops: z.number().nonnegative().nullable(),
+  targetTile: z.number().optional(),
 });
 
 export const SpawnIntentSchema = z.object({
@@ -507,6 +510,7 @@ export const PlayerSchema = z.object({
   username: UsernameSchema,
   cosmetics: PlayerCosmeticsSchema.optional(),
   isLobbyCreator: z.boolean().optional(),
+  isBot: z.boolean().optional(),
 });
 
 export const GameStartInfoSchema = z.object({

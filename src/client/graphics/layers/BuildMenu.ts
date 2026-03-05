@@ -116,13 +116,6 @@ export const buildTable: BuildItemDisplay[][] = [
       key: "unit_type.factory",
       countable: true,
     },
-    {
-      unitType: UnitType.ExtractionSite,
-      icon: samlauncherIcon, // Placeholder icon
-      description: "build_menu.desc.extraction_site",
-      key: "unit_type.extraction_site",
-      countable: true,
-    }
   ],
 ];
 

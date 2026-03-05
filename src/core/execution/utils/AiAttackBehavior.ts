@@ -44,7 +44,7 @@ export class AiAttackBehavior {
     private expandRatio: number,
     private allianceBehavior?: NationAllianceBehavior,
     private emojiBehavior?: NationEmojiBehavior,
-  ) {}
+  ) { }
 
   maybeAttack() {
     if (this.player === null || this.allianceBehavior === undefined) {
@@ -695,11 +695,22 @@ export class AiAttackBehavior {
   }
 
   forceSendAttack(target: Player | TerraNullius) {
+    let targetTile: TileRef | null = null;
+    if (this.game.config().gameConfig().weightedAttacks) {
+      const validBorders = Array.from(this.player.borderTiles()).filter((t) =>
+        this.game.neighbors(t).some((n) => this.game.owner(n) === target)
+      );
+      if (validBorders.length > 0) {
+        targetTile = this.random.randElement(validBorders);
+      }
+    }
+
     this.game.addExecution(
       new AttackExecution(
         this.player.troops() / 2,
         this.player,
         target.isPlayer() ? target.id() : this.game.terraNullius().id(),
+        targetTile,
       ),
     );
   }
@@ -773,11 +784,22 @@ export class AiAttackBehavior {
       this.emojiBehavior.maybeSendAttackEmoji(target);
     }
 
+    let targetTile: TileRef | null = null;
+    if (this.game.config().gameConfig().weightedAttacks) {
+      const validBorders = Array.from(this.player.borderTiles()).filter((t) =>
+        this.game.neighbors(t).some((n) => this.game.owner(n) === target)
+      );
+      if (validBorders.length > 0) {
+        targetTile = this.random.randElement(validBorders);
+      }
+    }
+
     this.game.addExecution(
       new AttackExecution(
         troops,
         this.player,
         target.isPlayer() ? target.id() : this.game.terraNullius().id(),
+        targetTile,
       ),
     );
   }

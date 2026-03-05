@@ -56,9 +56,26 @@ export class WarshipExecution implements Execution {
       return;
     }
 
+    const config = this.mg.config();
+    let healAmount = 0;
     const hasPort = this.warship.owner().unitCount(UnitType.Port) > 0;
+
     if (hasPort) {
-      this.warship.modifyHealth(1);
+      healAmount = config.warshipPortHealAmountBase();
+
+      const nearbyPorts = this.mg.nearbyUnits(
+        this.warship.tile()!,
+        config.warshipPortHealRange(),
+        [UnitType.Port]
+      );
+      const nearFriendlyPort = nearbyPorts.some(p => p.unit.owner() === this.warship.owner());
+      if (nearFriendlyPort) {
+        healAmount += config.warshipPortHealAmountBonus();
+      }
+    }
+
+    if (healAmount > 0) {
+      this.warship.modifyHealth(healAmount);
     }
 
     this.warship.setTargetUnit(this.findTargetUnit());

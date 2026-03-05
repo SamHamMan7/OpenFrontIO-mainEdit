@@ -38,6 +38,8 @@ const DEFAULT_OPTIONS = {
   selectedMap: GameMapType.World,
   selectedDifficulty: Difficulty.Easy,
   disableNations: false,
+  disableBoats: false,
+  weightedAttacks: false,
   bots: 400,
   infiniteGold: false,
   infiniteTroops: false,
@@ -62,6 +64,8 @@ export class SinglePlayerModal extends BaseModal {
   @state() private selectedDifficulty: Difficulty =
     DEFAULT_OPTIONS.selectedDifficulty;
   @state() private disableNations: boolean = DEFAULT_OPTIONS.disableNations;
+  @state() private disableBoats: boolean = DEFAULT_OPTIONS.disableBoats;
+  @state() private weightedAttacks: boolean = DEFAULT_OPTIONS.weightedAttacks;
   @state() private bots: number = DEFAULT_OPTIONS.bots;
   @state() private infiniteGold: boolean = DEFAULT_OPTIONS.infiniteGold;
   @state() private infiniteTroops: boolean = DEFAULT_OPTIONS.infiniteTroops;
@@ -192,8 +196,8 @@ export class SinglePlayerModal extends BaseModal {
         .inputValue=${this.goldMultiplierValue}
         .inputAriaLabel=${translateText("single_modal.gold_multiplier")}
         .inputPlaceholder=${translateText(
-          "single_modal.gold_multiplier_placeholder",
-        )}
+        "single_modal.gold_multiplier_placeholder",
+      )}
         .defaultInputValue=${2}
         .minValidOnEnable=${0.1}
         .onToggle=${this.handleGoldMultiplierToggle}
@@ -210,8 +214,8 @@ export class SinglePlayerModal extends BaseModal {
         .inputValue=${this.startingGoldValue}
         .inputAriaLabel=${translateText("single_modal.starting_gold")}
         .inputPlaceholder=${translateText(
-          "single_modal.starting_gold_placeholder",
-        )}
+        "single_modal.starting_gold_placeholder",
+      )}
         .defaultInputValue=${5000000}
         .minValidOnEnable=${0}
         .onToggle=${this.handleStartingGoldToggle}
@@ -224,31 +228,31 @@ export class SinglePlayerModal extends BaseModal {
       <div class="${this.modalContainerClass}">
         <!-- Header -->
         ${modalHeader({
-          title: translateText("main.solo") || "Solo",
-          onBack: () => this.close(),
-          ariaLabel: translateText("common.back"),
-          rightContent: hasLinkedAccount(this.userMeResponse)
-            ? html`<button
+      title: translateText("main.solo") || "Solo",
+      onBack: () => this.close(),
+      ariaLabel: translateText("common.back"),
+      rightContent: hasLinkedAccount(this.userMeResponse)
+        ? html`<button
                 @click=${this.toggleAchievements}
                 class="flex items-center gap-2 px-3 py-2 rounded-xl border border-white/10 bg-white/5 hover:bg-white/10 transition-all shrink-0 ${this
-                  .showAchievements
-                  ? "bg-yellow-500/10 border-yellow-500/30 text-yellow-400"
-                  : "text-white/60"}"
+            .showAchievements
+            ? "bg-yellow-500/10 border-yellow-500/30 text-yellow-400"
+            : "text-white/60"}"
               >
                 <img
                   src="/images/MedalIconWhite.svg"
                   class="w-4 h-4 opacity-80 shrink-0"
                   style="${this.showAchievements
-                    ? ""
-                    : "filter: grayscale(1);"}"
+            ? ""
+            : "filter: grayscale(1);"}"
                 />
                 <span
                   class="text-xs font-bold uppercase tracking-wider whitespace-nowrap"
                   >${translateText("single_modal.toggle_achievements")}</span
                 >
               </button>`
-            : this.renderNotLoggedInBanner(),
-        })}
+        : this.renderNotLoggedInBanner(),
+    })}
 
         <div
           class="flex-1 overflow-y-auto custom-scrollbar px-6 pt-4 pb-6 mr-1 mx-auto w-full max-w-5xl"
@@ -257,65 +261,73 @@ export class SinglePlayerModal extends BaseModal {
             class="block"
             .sectionGapClass=${"space-y-6"}
             .settings=${{
-              map: {
-                selected: this.selectedMap,
-                useRandom: this.useRandomMap,
-                showMedals: this.showAchievements,
-                mapWins: this.mapWins,
-              },
-              difficulty: {
-                selected: this.selectedDifficulty,
-                disabled: this.disableNations,
-              },
-              gameMode: {
-                selected: this.gameMode,
-              },
-              teamCount: {
-                selected: this.teamCount,
-              },
-              options: {
-                titleKey: "single_modal.options_title",
-                bots: {
-                  value: this.bots,
-                  labelKey: "single_modal.bots",
-                  disabledKey: "single_modal.bots_disabled",
-                },
-                toggles: [
-                  {
-                    labelKey: "single_modal.disable_nations",
-                    checked: this.disableNations,
-                    hidden:
-                      this.gameMode === GameMode.Team &&
-                      this.teamCount === HumansVsNations,
-                  },
-                  {
-                    labelKey: "single_modal.instant_build",
-                    checked: this.instantBuild,
-                  },
-                  {
-                    labelKey: "single_modal.random_spawn",
-                    checked: this.randomSpawn,
-                  },
-                  {
-                    labelKey: "single_modal.infinite_gold",
-                    checked: this.infiniteGold,
-                  },
-                  {
-                    labelKey: "single_modal.infinite_troops",
-                    checked: this.infiniteTroops,
-                  },
-                  {
-                    labelKey: "single_modal.compact_map",
-                    checked: this.compactMap,
-                  },
-                ],
-                inputCards,
-              },
-              unitTypes: {
-                titleKey: "single_modal.enables_title",
-                disabledUnits: this.disabledUnits,
-              },
-            }}
+        map: {
+          selected: this.selectedMap,
+          useRandom: this.useRandomMap,
+          showMedals: this.showAchievements,
+          mapWins: this.mapWins,
+        },
+        difficulty: {
+          selected: this.selectedDifficulty,
+          disabled: this.disableNations,
+        },
+        gameMode: {
+          selected: this.gameMode,
+        },
+        teamCount: {
+          selected: this.teamCount,
+        },
+        options: {
+          titleKey: "single_modal.options_title",
+          bots: {
+            value: this.bots,
+            labelKey: "single_modal.bots",
+            disabledKey: "single_modal.bots_disabled",
+          },
+          toggles: [
+            {
+              labelKey: "single_modal.disable_nations",
+              checked: this.disableNations,
+              hidden:
+                this.gameMode === GameMode.Team &&
+                this.teamCount === HumansVsNations,
+            },
+            {
+              labelKey: "single_modal.disable_boats",
+              checked: this.disableBoats,
+            },
+            {
+              labelKey: "single_modal.weighted_attacks",
+              checked: this.weightedAttacks,
+            },
+            {
+              labelKey: "single_modal.instant_build",
+              checked: this.instantBuild,
+            },
+            {
+              labelKey: "single_modal.random_spawn",
+              checked: this.randomSpawn,
+            },
+            {
+              labelKey: "single_modal.infinite_gold",
+              checked: this.infiniteGold,
+            },
+            {
+              labelKey: "single_modal.infinite_troops",
+              checked: this.infiniteTroops,
+            },
+            {
+              labelKey: "single_modal.compact_map",
+              checked: this.compactMap,
+            },
+          ],
+          inputCards,
+        },
+        unitTypes: {
+          titleKey: "single_modal.enables_title",
+          disabledUnits: this.disabledUnits,
+        },
+      }}
             @map-selected=${this.handleConfigMapSelected}
             @random-map-selected=${this.handleConfigRandomMapSelected}
             @difficulty-selected=${this.handleConfigDifficultySelected}
@@ -330,12 +342,12 @@ export class SinglePlayerModal extends BaseModal {
         <!-- Footer Action -->
         <div class="p-6 border-t border-white/10 bg-black/20">
           ${hasLinkedAccount(this.userMeResponse) && this.hasOptionsChanged()
-            ? html`<div
+        ? html`<div
                 class="mb-4 px-4 py-3 rounded-xl bg-yellow-500/20 border border-yellow-500/30 text-yellow-400 text-xs font-bold uppercase tracking-wider text-center"
               >
                 ${translateText("single_modal.options_changed_no_achievements")}
               </div>`
-            : null}
+        : null}
           <button
             @click=${this.startGame}
             class="w-full py-4 text-sm font-bold text-white uppercase tracking-widest bg-blue-600 hover:bg-blue-500 rounded-xl transition-all shadow-lg shadow-blue-900/20 hover:shadow-blue-900/40 hover:-translate-y-0.5 active:translate-y-0"
@@ -367,6 +379,8 @@ export class SinglePlayerModal extends BaseModal {
   private hasOptionsChanged(): boolean {
     return (
       this.disableNations !== DEFAULT_OPTIONS.disableNations ||
+      this.disableBoats !== DEFAULT_OPTIONS.disableBoats ||
+      this.weightedAttacks !== DEFAULT_OPTIONS.weightedAttacks ||
       this.bots !== DEFAULT_OPTIONS.bots ||
       this.infiniteGold !== DEFAULT_OPTIONS.infiniteGold ||
       this.infiniteTroops !== DEFAULT_OPTIONS.infiniteTroops ||
@@ -388,6 +402,8 @@ export class SinglePlayerModal extends BaseModal {
     this.gameMode = DEFAULT_OPTIONS.gameMode;
     this.useRandomMap = DEFAULT_OPTIONS.useRandomMap;
     this.disableNations = DEFAULT_OPTIONS.disableNations;
+    this.disableBoats = DEFAULT_OPTIONS.disableBoats;
+    this.weightedAttacks = DEFAULT_OPTIONS.weightedAttacks;
     this.bots = DEFAULT_OPTIONS.bots;
     this.infiniteGold = DEFAULT_OPTIONS.infiniteGold;
     this.infiniteTroops = DEFAULT_OPTIONS.infiniteTroops;
@@ -456,6 +472,12 @@ export class SinglePlayerModal extends BaseModal {
     switch (labelKey) {
       case "single_modal.disable_nations":
         this.disableNations = checked;
+        break;
+      case "single_modal.disable_boats":
+        this.disableBoats = checked;
+        break;
+      case "single_modal.weighted_attacks":
+        this.weightedAttacks = checked;
         break;
       case "single_modal.instant_build":
         this.instantBuild = checked;
@@ -590,7 +612,7 @@ export class SinglePlayerModal extends BaseModal {
         console.error("Max timer is enabled but no valid value is set");
         alert(
           translateText("single_modal.max_timer_invalid") ||
-            "Please enter a valid max timer value (1-120 minutes)",
+          "Please enter a valid max timer value (1-120 minutes)",
         );
         // Focus the input
         const input = this.getEndTimerInput();
@@ -658,13 +680,15 @@ export class SinglePlayerModal extends BaseModal {
                 .map((u) => Object.values(UnitType).find((ut) => ut === u))
                 .filter((ut): ut is UnitType => ut !== undefined),
               ...(this.gameMode === GameMode.Team &&
-              this.teamCount === HumansVsNations
+                this.teamCount === HumansVsNations
                 ? {
-                    disableNations: false,
-                  }
+                  disableNations: false,
+                }
                 : {
-                    disableNations: this.disableNations,
-                  }),
+                  disableNations: this.disableNations,
+                }),
+              disableBoats: this.disableBoats,
+              weightedAttacks: this.weightedAttacks,
               ...(this.goldMultiplier && this.goldMultiplierValue
                 ? { goldMultiplier: this.goldMultiplierValue }
                 : {}),

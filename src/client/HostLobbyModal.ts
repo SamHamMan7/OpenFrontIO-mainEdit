@@ -46,6 +46,8 @@ export class HostLobbyModal extends BaseModal {
   @state() private selectedMap: GameMapType = GameMapType.World;
   @state() private selectedDifficulty: Difficulty = Difficulty.Easy;
   @state() private disableNations = false;
+  @state() private disableBoats = false;
+  @state() private weightedAttacks = false;
   @state() private gameMode: GameMode = GameMode.FFA;
   @state() private teamCount: TeamCountConfig = 2;
 
@@ -181,8 +183,8 @@ export class HostLobbyModal extends BaseModal {
         .inputValue=${this.goldMultiplierValue}
         .inputAriaLabel=${translateText("single_modal.gold_multiplier")}
         .inputPlaceholder=${translateText(
-          "single_modal.gold_multiplier_placeholder",
-        )}
+        "single_modal.gold_multiplier_placeholder",
+      )}
         .defaultInputValue=${2}
         .minValidOnEnable=${0.1}
         .onToggle=${this.handleGoldMultiplierToggle}
@@ -199,8 +201,8 @@ export class HostLobbyModal extends BaseModal {
         .inputValue=${this.startingGoldValue}
         .inputAriaLabel=${translateText("single_modal.starting_gold")}
         .inputPlaceholder=${translateText(
-          "single_modal.starting_gold_placeholder",
-        )}
+        "single_modal.starting_gold_placeholder",
+      )}
         .defaultInputValue=${5000000}
         .minValidOnEnable=${0}
         .onToggle=${this.handleStartingGoldToggle}
@@ -213,20 +215,20 @@ export class HostLobbyModal extends BaseModal {
       <div class="${this.modalContainerClass}">
         <!-- Header -->
         ${modalHeader({
-          title: translateText("host_modal.title"),
-          onBack: () => {
-            this.leaveLobbyOnClose = true;
-            this.close();
-          },
-          ariaLabel: translateText("common.back"),
-          rightContent: html`
+      title: translateText("host_modal.title"),
+      onBack: () => {
+        this.leaveLobbyOnClose = true;
+        this.close();
+      },
+      ariaLabel: translateText("common.back"),
+      rightContent: html`
             <copy-button
               .lobbyId=${this.lobbyId}
               .lobbySuffix=${this.lobbyUrlSuffix}
               include-lobby-query
             ></copy-button>
           `,
-        })}
+    })}
 
         <div
           class="flex-1 overflow-y-auto custom-scrollbar p-6 mr-1 mx-auto w-full max-w-5xl"
@@ -235,72 +237,80 @@ export class HostLobbyModal extends BaseModal {
             class="block"
             .sectionGapClass=${"space-y-10"}
             .settings=${{
-              map: {
-                selected: this.selectedMap,
-                useRandom: this.useRandomMap,
-                randomMapDivider: true,
-              },
-              difficulty: {
-                selected: this.selectedDifficulty,
-                disabled: this.disableNations,
-              },
-              gameMode: {
-                selected: this.gameMode,
-              },
-              teamCount: {
-                selected: this.teamCount,
-              },
-              options: {
-                titleKey: "host_modal.options_title",
-                bots: {
-                  value: this.bots,
-                  labelKey: "host_modal.bots",
-                  disabledKey: "host_modal.bots_disabled",
-                },
-                toggles: [
-                  {
-                    labelKey: "host_modal.disable_nations",
-                    checked: this.disableNations,
-                    hidden:
-                      this.gameMode === GameMode.Team &&
-                      this.teamCount === HumansVsNations,
-                  },
-                  {
-                    labelKey: "host_modal.instant_build",
-                    checked: this.instantBuild,
-                  },
-                  {
-                    labelKey: "host_modal.random_spawn",
-                    checked: this.randomSpawn,
-                  },
-                  {
-                    labelKey: "host_modal.donate_gold",
-                    checked: this.donateGold,
-                  },
-                  {
-                    labelKey: "host_modal.donate_troops",
-                    checked: this.donateTroops,
-                  },
-                  {
-                    labelKey: "host_modal.infinite_gold",
-                    checked: this.infiniteGold,
-                  },
-                  {
-                    labelKey: "host_modal.infinite_troops",
-                    checked: this.infiniteTroops,
-                  },
-                  {
-                    labelKey: "host_modal.compact_map",
-                    checked: this.compactMap,
-                  },
-                ],
-                inputCards,
-              },
-              unitTypes: {
-                titleKey: "host_modal.enables_title",
-                disabledUnits: this.disabledUnits,
-              },
-            }}
+        map: {
+          selected: this.selectedMap,
+          useRandom: this.useRandomMap,
+          randomMapDivider: true,
+        },
+        difficulty: {
+          selected: this.selectedDifficulty,
+          disabled: this.disableNations,
+        },
+        gameMode: {
+          selected: this.gameMode,
+        },
+        teamCount: {
+          selected: this.teamCount,
+        },
+        options: {
+          titleKey: "host_modal.options_title",
+          bots: {
+            value: this.bots,
+            labelKey: "host_modal.bots",
+            disabledKey: "host_modal.bots_disabled",
+          },
+          toggles: [
+            {
+              labelKey: "host_modal.disable_nations",
+              checked: this.disableNations,
+              hidden:
+                this.gameMode === GameMode.Team &&
+                this.teamCount === HumansVsNations,
+            },
+            {
+              labelKey: "host_modal.disable_boats",
+              checked: this.disableBoats,
+            },
+            {
+              labelKey: "host_modal.weighted_attacks",
+              checked: this.weightedAttacks,
+            },
+            {
+              labelKey: "host_modal.instant_build",
+              checked: this.instantBuild,
+            },
+            {
+              labelKey: "host_modal.random_spawn",
+              checked: this.randomSpawn,
+            },
+            {
+              labelKey: "host_modal.donate_gold",
+              checked: this.donateGold,
+            },
+            {
+              labelKey: "host_modal.donate_troops",
+              checked: this.donateTroops,
+            },
+            {
+              labelKey: "host_modal.infinite_gold",
+              checked: this.infiniteGold,
+            },
+            {
+              labelKey: "host_modal.infinite_troops",
+              checked: this.infiniteTroops,
+            },
+            {
+              labelKey: "host_modal.compact_map",
+              checked: this.compactMap,
+            },
+          ],
+          inputCards,
+        },
+        unitTypes: {
+          titleKey: "host_modal.enables_title",
+          disabledUnits: this.disabledUnits,
+        },
+      }}
             @map-selected=${this.handleConfigMapSelected}
             @random-map-selected=${this.handleConfigRandomMapSelected}
             @difficulty-selected=${this.handleConfigDifficultySelected}
@@ -333,8 +343,8 @@ export class HostLobbyModal extends BaseModal {
             ?disabled=${this.clients.length < 2}
           >
             ${this.clients.length === 1
-              ? translateText("host_modal.waiting")
-              : translateText("host_modal.start")}
+        ? translateText("host_modal.waiting")
+        : translateText("host_modal.start")}
           </button>
         </div>
       </div>
@@ -506,6 +516,12 @@ export class HostLobbyModal extends BaseModal {
     switch (labelKey) {
       case "host_modal.disable_nations":
         void this.handleDisableNationsChange(checked);
+        break;
+      case "host_modal.disable_boats":
+        this.handleDisableBoatsChange(checked);
+        break;
+      case "host_modal.weighted_attacks":
+        this.handleWeightedAttacksChange(checked);
         break;
       case "host_modal.instant_build":
         this.handleInstantBuildChange(checked);
@@ -710,6 +726,16 @@ export class HostLobbyModal extends BaseModal {
     this.putGameConfig();
   };
 
+  private handleDisableBoatsChange = (val: boolean) => {
+    this.disableBoats = val;
+    this.putGameConfig();
+  };
+
+  private handleWeightedAttacksChange = (val: boolean) => {
+    this.weightedAttacks = val;
+    this.putGameConfig();
+  };
+
   private async handleGameModeSelection(value: GameMode) {
     this.gameMode = value;
     if (this.gameMode === GameMode.Team) {
@@ -756,13 +782,15 @@ export class HostLobbyModal extends BaseModal {
               : undefined,
             playerTeams: this.teamCount,
             ...(this.gameMode === GameMode.Team &&
-            this.teamCount === HumansVsNations
+              this.teamCount === HumansVsNations
               ? {
-                  disableNations: false,
-                }
+                disableNations: false,
+              }
               : {
-                  disableNations: this.disableNations,
-                }),
+                disableNations: this.disableNations,
+              }),
+            disableBoats: this.disableBoats,
+            weightedAttacks: this.weightedAttacks,
             maxTimerValue:
               this.maxTimer === true ? this.maxTimerValue : undefined,
             goldMultiplier:

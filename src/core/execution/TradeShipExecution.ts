@@ -26,7 +26,7 @@ export class TradeShipExecution implements Execution {
     private origOwner: Player,
     private srcPort: Unit,
     private _dstPort: Unit,
-  ) {}
+  ) { }
 
   init(mg: Game, ticks: number): void {
     this.mg = mg;
@@ -155,7 +155,7 @@ export class TradeShipExecution implements Execution {
     const gold = this.mg.config().tradeShipGold(this.tilesTraveled);
 
     if (this.wasCaptured) {
-      this.tradeShip!.owner().addGold(gold, this._dstPort.tile());
+      this.tradeShip!.owner().addGold(gold);
       this.mg.displayMessage(
         "events_display.received_gold_from_captured_ship",
         MessageType.CAPTURED_ENEMY_UNIT,
@@ -172,7 +172,7 @@ export class TradeShipExecution implements Execution {
         .boatCapturedTrade(this.tradeShip!.owner(), this.origOwner, gold);
     } else {
       this.srcPort.owner().addGold(gold);
-      this._dstPort.owner().addGold(gold, this._dstPort.tile());
+      this._dstPort.owner().addGold(gold);
       this.mg.displayMessage(
         "events_display.received_gold_from_trade",
         MessageType.RECEIVED_GOLD_FROM_TRADE,

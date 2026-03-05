@@ -35,7 +35,7 @@ export class AttackExecution implements Execution {
     private _targetID: PlayerID | null,
     private sourceTile: TileRef | null = null,
     private removeTroops: boolean = true,
-  ) {}
+  ) { }
 
   public targetID(): PlayerID | null {
     return this._targetID;
@@ -112,7 +112,26 @@ export class AttackExecution implements Execution {
     );
 
     if (this.sourceTile !== null) {
-      this.addNeighbors(this.sourceTile);
+      if (this.mg.config().gameConfig().weightedAttacks) {
+        let closestBorder: TileRef | null = null;
+        let minDistance = Infinity;
+        for (const tile of this._owner.borderTiles()) {
+          if (this.mg.neighbors(tile).some((n) => this.mg.owner(n) === this.target)) {
+            const dist = this.mg.manhattanDist(tile, this.sourceTile);
+            if (dist < minDistance) {
+              minDistance = dist;
+              closestBorder = tile;
+            }
+          }
+        }
+        if (closestBorder !== null) {
+          this.addNeighbors(closestBorder);
+        } else {
+          this.addNeighbors(this.sourceTile);
+        }
+      } else {
+        this.addNeighbors(this.sourceTile);
+      }
     } else {
       this.refreshToConquer();
     }

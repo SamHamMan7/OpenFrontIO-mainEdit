@@ -46,7 +46,7 @@ export async function createGameRunner(
   const humans = gameStart.players.map((p) => {
     return new PlayerInfo(
       p.username,
-      PlayerType.Human,
+      p.isBot ? PlayerType.Bot : PlayerType.Human,
       p.clientID,
       random.nextID(),
       p.isLobbyCreator ?? false,
@@ -89,7 +89,7 @@ export class GameRunner {
     public game: Game,
     private execManager: Executor,
     private callBack: (gu: GameUpdateViewData | ErrorUpdate) => void,
-  ) {}
+  ) { }
 
   init() {
     if (this.game.config().isRandomSpawn()) {

@@ -23,10 +23,10 @@ class TradeStationStopHandler implements TrainStopHandler {
     const gold = mg.config().trainGold(rel(trainOwner, stationOwner));
     // Share revenue with the station owner if it's not the current player
     if (trainOwner !== stationOwner) {
-      stationOwner.addGold(gold, station.tile());
+      stationOwner.addGold(gold);
       mg.stats().trainExternalTrade(trainOwner, gold);
     }
-    trainOwner.addGold(gold, station.tile());
+    trainOwner.addGold(gold);
     mg.stats().trainSelfTrade(trainOwner, gold);
   }
 }
@@ -36,7 +36,7 @@ class FactoryStopHandler implements TrainStopHandler {
     mg: Game,
     station: TrainStation,
     trainExecution: TrainExecution,
-  ): void {}
+  ): void { }
 }
 
 export function createTrainStopHandlers(

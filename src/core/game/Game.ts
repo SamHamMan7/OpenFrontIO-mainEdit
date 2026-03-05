@@ -264,7 +264,7 @@ export enum UnitType {
   MIRVWarhead = "MIRV Warhead",
   Train = "Train",
   Factory = "Factory",
-  ExtractionSite = "Extraction Site",
+
 }
 
 export enum TrainType {
@@ -280,7 +280,6 @@ const _structureTypes: ReadonlySet<UnitType> = new Set([
   UnitType.MissileSilo,
   UnitType.Port,
   UnitType.Factory,
-  UnitType.ExtractionSite,
 ]);
 
 export const StructureTypes: readonly UnitType[] = [..._structureTypes];
@@ -345,7 +344,6 @@ export interface UnitParamsMap {
 
   [UnitType.City]: Record<string, never>;
 
-  [UnitType.ExtractionSite]: Record<string, never>;
 
   [UnitType.MIRV]: {
     targetTile?: number;
@@ -636,9 +634,6 @@ export interface Player {
   gold(): Gold;
   addGold(gold: Gold): void;
   removeGold(gold: Gold): Gold; // returns amount actually removed
-  oil(): bigint;
-  addOil(oil: bigint): void;
-  removeOil(oil: bigint): bigint;
 
   troops(): number;
   addTroops(troops: number): void;
@@ -990,12 +985,6 @@ export const MESSAGE_TYPE_CATEGORIES: Record<MessageType, MessageCategory> = {
  */
 export function getMessageCategory(messageType: MessageType): MessageCategory {
   return MESSAGE_TYPE_CATEGORIES[messageType];
-}
-
-// Explicit Export for Oil and Gold underground deposits
-export interface UndergroundDeposit {
-  type: 'Gold' | 'Oil';
-  amount: number | 'infinite';
 }
 
 export interface NameViewData {

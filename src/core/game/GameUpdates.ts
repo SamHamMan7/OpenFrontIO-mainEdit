@@ -123,7 +123,6 @@ export interface ConquestUpdate {
   conquerorId: PlayerID;
   conqueredId: PlayerID;
   gold: Gold;
-  oil: bigint;
 }
 
 export interface UnitUpdate {
@@ -174,7 +173,6 @@ export interface PlayerUpdate {
   isDisconnected: boolean;
   tilesOwned: number;
   gold: Gold;
-  oil: bigint;
   troops: number;
   allies: number[];
   embargoes: Set<PlayerID>;

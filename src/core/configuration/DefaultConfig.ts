@@ -228,6 +228,15 @@ export class DefaultConfig implements Config {
   }
 
   isUnitDisabled(unitType: UnitType): boolean {
+    if (this._gameConfig.disableBoats) {
+      if (
+        unitType === UnitType.TransportShip ||
+        unitType === UnitType.Warship ||
+        unitType === UnitType.Port
+      ) {
+        return true;
+      }
+    }
     return this._gameConfig.disabledUnits?.includes(unitType) ?? false;
   }
 
@@ -236,6 +245,9 @@ export class DefaultConfig implements Config {
   }
   instantBuild(): boolean {
     return this._gameConfig.instantBuild;
+  }
+  disableBoats(): boolean {
+    return this._gameConfig.disableBoats === true;
   }
   disableNavMesh(): boolean {
     return this._gameConfig.disableNavMesh ?? false;
@@ -447,12 +459,6 @@ export class DefaultConfig implements Config {
           ),
           constructionDuration: this.instantBuild() ? 0 : 2 * 10,
           upgradable: true,
-        };
-        break;
-      case UnitType.ExtractionSite:
-        info = {
-          cost: this.costWrapper(() => 500_000, UnitType.ExtractionSite),
-          constructionDuration: this.instantBuild() ? 0 : 5 * 10,
         };
         break;
       case UnitType.Train:
@@ -900,6 +906,18 @@ export class DefaultConfig implements Config {
 
   warshipTargettingRange(): number {
     return 130;
+  }
+
+  warshipPortHealAmountBase(): number {
+    return 1;
+  }
+
+  warshipPortHealAmountBonus(): number {
+    return 4;
+  }
+
+  warshipPortHealRange(): number {
+    return 30;
   }
 
   warshipShellAttackRate(): number {

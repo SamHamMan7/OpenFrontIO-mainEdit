@@ -1,0 +1,280 @@
+[warning] LangSelector not found in DOM
+[warning] LangSelector not found in DOM
+[warning] Lit is in dev mode. Not recommended for production! See https://lit.dev/msg/dev-mode for more information.
+[warning] Multiple versions of Lit loaded. Loading multiple versions is not recommended. See https://lit.dev/msg/multiple-versions for more information.
+[warning] Module "path" has been externalized for browser compatibility. Cannot access "path.isAbsolute" in client code. See https://vite.dev/guide/troubleshooting.html#module-externalized-for-browser-compatibility for more details.
+[warning] Module "path" has been externalized for browser compatibility. Cannot access "path.resolve" in client code. See https://vite.dev/guide/troubleshooting.html#module-externalized-for-browser-compatibility for more details.
+[warning] Module "source-map-js" has been externalized for browser compatibility. Cannot access "source-map-js.SourceMapConsumer" in client code. See https://vite.dev/guide/troubleshooting.html#module-externalized-for-browser-compatibility for more details.
+[warning] Module "source-map-js" has been externalized for browser compatibility. Cannot access "source-map-js.SourceMapGenerator" in client code. See https://vite.dev/guide/troubleshooting.html#module-externalized-for-browser-compatibility for more details.
+[warning] Module "url" has been externalized for browser compatibility. Cannot access "url.fileURLToPath" in client code. See https://vite.dev/guide/troubleshooting.html#module-externalized-for-browser-compatibility for more details.
+[warning] Module "url" has been externalized for browser compatibility. Cannot access "url.pathToFileURL" in client code. See https://vite.dev/guide/troubleshooting.html#module-externalized-for-browser-compatibility for more details.
+[warning] Module "fs" has been externalized for browser compatibility. Cannot access "fs.existsSync" in client code. See https://vite.dev/guide/troubleshooting.html#module-externalized-for-browser-compatibility for more details.
+[warning] Module "fs" has been externalized for browser compatibility. Cannot access "fs.readFileSync" in client code. See https://vite.dev/guide/troubleshooting.html#module-externalized-for-browser-compatibility for more details.
+[warning] Module "path" has been externalized for browser compatibility. Cannot access "path.dirname" in client code. See https://vite.dev/guide/troubleshooting.html#module-externalized-for-browser-compatibility for more details.
+[warning] Module "path" has been externalized for browser compatibility. Cannot access "path.join" in client code. See https://vite.dev/guide/troubleshooting.html#module-externalized-for-browser-compatibility for more details.
+[warning] Module "source-map-js" has been externalized for browser compatibility. Cannot access "source-map-js.SourceMapConsumer" in client code. See https://vite.dev/guide/troubleshooting.html#module-externalized-for-browser-compatibility for more details.
+[warning] Module "source-map-js" has been externalized for browser compatibility. Cannot access "source-map-js.SourceMapGenerator" in client code. See https://vite.dev/guide/troubleshooting.html#module-externalized-for-browser-compatibility for more details.
+[warning] Module "path" has been externalized for browser compatibility. Cannot access "path.dirname" in client code. See https://vite.dev/guide/troubleshooting.html#module-externalized-for-browser-compatibility for more details.
+[warning] Module "path" has been externalized for browser compatibility. Cannot access "path.relative" in client code. See https://vite.dev/guide/troubleshooting.html#module-externalized-for-browser-compatibility for more details.
+[warning] Module "path" has been externalized for browser compatibility. Cannot access "path.resolve" in client code. See https://vite.dev/guide/troubleshooting.html#module-externalized-for-browser-compatibility for more details.
+[warning] Module "path" has been externalized for browser compatibility. Cannot access "path.sep" in client code. See https://vite.dev/guide/troubleshooting.html#module-externalized-for-browser-compatibility for more details.
+[warning] Module "source-map-js" has been externalized for browser compatibility. Cannot access "source-map-js.SourceMapConsumer" in client code. See https://vite.dev/guide/troubleshooting.html#module-externalized-for-browser-compatibility for more details.
+[warning] Module "source-map-js" has been externalized for browser compatibility. Cannot access "source-map-js.SourceMapGenerator" in client code. See https://vite.dev/guide/troubleshooting.html#module-externalized-for-browser-compatibility for more details.
+[warning] Module "url" has been externalized for browser compatibility. Cannot access "url.pathToFileURL" in client code. See https://vite.dev/guide/troubleshooting.html#module-externalized-for-browser-compatibility for more details.
+[warning] LangSelector not found in DOM
+[warning] LangSelector not found in DOM
+[warning] LangSelector not found in DOM
+[warning] LangSelector not found in DOM
+[warning] LangSelector not found in DOM
+[warning] LangSelector not found in DOM
+[warning] LangSelector not found in DOM
+[warning] LangSelector not found in DOM
+[warning] LangSelector not found in DOM
+[warning] LangSelector not found in DOM
+[warning] LangSelector not found in DOM
+[warning] LangSelector not found in DOM
+[warning] LangSelector not found in DOM
+[warning] LangSelector not found in DOM
+[warning] LangSelector not found in DOM
+[warning] LangSelector not found in DOM
+[warning] LangSelector not found in DOM
+[warning] LangSelector not found in DOM
+[warning] LangSelector not found in DOM
+[warning] LangSelector not found in DOM
+[warning] LangSelector not found in DOM
+[warning] LangSelector not found in DOM
+[warning] LangSelector not found in DOM
+[warning] Unrecognized feature: 'web-share'.
+[warning] LangSelector not found in DOM
+[warning] LangSelector not found in DOM
+[warning] LangSelector not found in DOM
+[warning] LangSelector not found in DOM
+[warning] LangSelector not found in DOM
+[warning] LangSelector not found in DOM
+[warning] LangSelector not found in DOM
+[warning] LangSelector not found in DOM
+[warning] LangSelector not found in DOM
+[warning] LangSelector not found in DOM
+[warning] LangSelector not found in DOM
+[warning] LangSelector not found in DOM
+[warning] LangSelector not found in DOM
+[warning] LangSelector not found in DOM
+[warning] LangSelector not found in DOM
+[warning] LangSelector not found in DOM
+[warning] LangSelector not found in DOM
+[warning] LangSelector not found in DOM
+[warning] LangSelector not found in DOM
+[warning] LangSelector not found in DOM
+[warning] LangSelector not found in DOM
+[warning] LangSelector not found in DOM
+[warning] LangSelector not found in DOM
+[warning] LangSelector not found in DOM
+[warning] LangSelector not found in DOM
+[warning] LangSelector not found in DOM
+[warning] LangSelector not found in DOM
+[warning] LangSelector not found in DOM
+[warning] LangSelector not found in DOM
+[warning] LangSelector not found in DOM
+[warning] LangSelector not found in DOM
+[warning] LangSelector not found in DOM
+[warning] LangSelector not found in DOM
+[warning] LangSelector not found in DOM
+[warning] LangSelector not found in DOM
+[warning] LangSelector not found in DOM
+[warning] LangSelector not found in DOM
+[warning] LangSelector not found in DOM
+[warning] LangSelector not found in DOM
+[warning] LangSelector not found in DOM
+[warning] LangSelector not found in DOM
+[warning] LangSelector not found in DOM
+[warning] LangSelector not found in DOM
+[warning] LangSelector not found in DOM
+[warning] LangSelector not found in DOM
+[warning] LangSelector not found in DOM
+[warning] LangSelector not found in DOM
+[warning] LangSelector not found in DOM
+[warning] LangSelector not found in DOM
+[warning] LangSelector not found in DOM
+[warning] LangSelector not found in DOM
+[warning] LangSelector not found in DOM
+[warning] LangSelector not found in DOM
+[warning] LangSelector not found in DOM
+[warning] LangSelector not found in DOM
+[warning] LangSelector not found in DOM
+[warning] LangSelector not found in DOM
+[warning] LangSelector not found in DOM
+[warning] LangSelector not found in DOM
+[warning] LangSelector not found in DOM
+[warning] LangSelector not found in DOM
+[warning] LangSelector not found in DOM
+[warning] LangSelector not found in DOM
+[warning] LangSelector not found in DOM
+[warning] LangSelector not found in DOM
+[warning] LangSelector not found in DOM
+[warning] LangSelector not found in DOM
+[warning] LangSelector not found in DOM
+[warning] LangSelector not found in DOM
+[warning] LangSelector not found in DOM
+[warning] LangSelector not found in DOM
+[warning] LangSelector not found in DOM
+[warning] LangSelector not found in DOM
+[warning] LangSelector not found in DOM
+[warning] LangSelector not found in DOM
+[warning] LangSelector not found in DOM
+[warning] LangSelector not found in DOM
+[warning] LangSelector not found in DOM
+[warning] LangSelector not found in DOM
+[warning] LangSelector not found in DOM
+[warning] LangSelector not found in DOM
+[warning] LangSelector not found in DOM
+[warning] LangSelector not found in DOM
+[warning] LangSelector not found in DOM
+[warning] LangSelector not found in DOM
+[warning] LangSelector not found in DOM
+[warning] LangSelector not found in DOM
+[warning] LangSelector not found in DOM
+[warning] LangSelector not found in DOM
+[warning] LangSelector not found in DOM
+[warning] LangSelector not found in DOM
+[warning] LangSelector not found in DOM
+[warning] LangSelector not found in DOM
+[warning] LangSelector not found in DOM
+[warning] LangSelector not found in DOM
+[warning] LangSelector not found in DOM
+[warning] LangSelector not found in DOM
+[warning] LangSelector not found in DOM
+[warning] LangSelector not found in DOM
+[warning] LangSelector not found in DOM
+[warning] LangSelector not found in DOM
+[warning] LangSelector not found in DOM
+[warning] LangSelector not found in DOM
+[warning] LangSelector not found in DOM
+[warning] LangSelector not found in DOM
+[warning] LangSelector not found in DOM
+[warning] LangSelector not found in DOM
+[warning] LangSelector not found in DOM
+[warning] LangSelector not found in DOM
+[warning] LangSelector not found in DOM
+[warning] LangSelector not found in DOM
+[warning] LangSelector not found in DOM
+[warning] LangSelector not found in DOM
+[warning] LangSelector not found in DOM
+[warning] LangSelector not found in DOM
+[warning] LangSelector not found in DOM
+[warning] LangSelector not found in DOM
+[warning] LangSelector not found in DOM
+[warning] LangSelector not found in DOM
+[warning] LangSelector not found in DOM
+[warning] LangSelector not found in DOM
+[warning] LangSelector not found in DOM
+[warning] LangSelector not found in DOM
+[warning] LangSelector not found in DOM
+[warning] LangSelector not found in DOM
+[warning] LangSelector not found in DOM
+[warning] LangSelector not found in DOM
+[warning] LangSelector not found in DOM
+[warning] LangSelector not found in DOM
+[warning] LangSelector not found in DOM
+[warning] LangSelector not found in DOM
+[warning] LangSelector not found in DOM
+[warning] LangSelector not found in DOM
+[warning] LangSelector not found in DOM
+[warning] LangSelector not found in DOM
+[warning] LangSelector not found in DOM
+[warning] LangSelector not found in DOM
+[warning] LangSelector not found in DOM
+[warning] LangSelector not found in DOM
+[warning] LangSelector not found in DOM
+[warning] LangSelector not found in DOM
+[warning] LangSelector not found in DOM
+[warning] LangSelector not found in DOM
+[warning] LangSelector not found in DOM
+[warning] LangSelector not found in DOM
+[warning] LangSelector not found in DOM
+[warning] LangSelector not found in DOM
+[warning] LangSelector not found in DOM
+[warning] LangSelector not found in DOM
+[warning] LangSelector not found in DOM
+[warning] LangSelector not found in DOM
+[warning] LangSelector not found in DOM
+[warning] LangSelector not found in DOM
+[warning] LangSelector not found in DOM
+[warning] LangSelector not found in DOM
+[warning] LangSelector not found in DOM
+[warning] LangSelector not found in DOM
+[warning] LangSelector not found in DOM
+[warning] LangSelector not found in DOM
+[warning] LangSelector not found in DOM
+[warning] LangSelector not found in DOM
+[warning] LangSelector not found in DOM
+[warning] LangSelector not found in DOM
+[warning] LangSelector not found in DOM
+[warning] LangSelector not found in DOM
+[warning] LangSelector not found in DOM
+[warning] LangSelector not found in DOM
+[warning] LangSelector not found in DOM
+[warning] LangSelector not found in DOM
+[warning] LangSelector not found in DOM
+[warning] LangSelector not found in DOM
+[warning] LangSelector not found in DOM
+[warning] LangSelector not found in DOM
+[warning] LangSelector not found in DOM
+[warning] LangSelector not found in DOM
+[warning] LangSelector not found in DOM
+[warning] LangSelector not found in DOM
+[warning] LangSelector not found in DOM
+[warning] LangSelector not found in DOM
+[warning] LangSelector not found in DOM
+[warning] LangSelector not found in DOM
+[warning] LangSelector not found in DOM
+[warning] [Cloudflare Turnstile] Call to execute() on a widget that is already executing (cf-chl-widget-fplil), consider using reset() before execute().
+[error] Failed to load resource: the server responded with a status of 400 ()
+[warning] [Audigent] cannot find __gpp framework
+[error] Access to XMLHttpRequest at 'https://cloudflareinsights.com/cdn-cgi/rum' from origin 'http://localhost:9000' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: The 'Access-Control-Allow-Origin' header has a value 'http://localhost' that is not equal to the supplied origin.
+[error] Failed to load resource: net::ERR_FAILED
+[error] Failed to load resource: net::ERR_CONNECTION_REFUSED
+[error] Error getting cosmetics: TypeError: Failed to fetch
+    at http://localhost:9000/src/client/Cosmetics.ts:40:30
+    at fetchCosmetics (http://localhost:9000/src/client/Cosmetics.ts:58:5)
+    at getCosmeticsHash (http://localhost:9000/src/client/Cosmetics.ts:62:9)
+    at NavNotificationsController.hostConnected (http://localhost:9000/src/client/components/NavNotificationsController.ts:41:5)
+    at http://localhost:9000/node_modules/.vite/deps/chunk-FNGMSPEC.js?v=11b58ed2:515:57
+    at Set.forEach (<anonymous>)
+    at DesktopNavBar.connectedCallback (http://localhost:9000/node_modules/.vite/deps/chunk-FNGMSPEC.js?v=11b58ed2:515:25)
+    at DesktopNavBar.connectedCallback (http://localhost:9000/node_modules/.vite/deps/lit.js?v=f64e496d:88:11)
+    at DesktopNavBar.connectedCallback (http://localhost:9000/src/client/components/DesktopNavBar.ts:28:11)
+    at http://localhost:9000/node_modules/.vite/deps/lit_decorators__js.js?v=af437e16:14:20
+[error] Failed to load resource: net::ERR_CONNECTION_REFUSED
+[error] Refresh failed TypeError: Failed to fetch
+    at doRefreshJwt (http://localhost:9000/src/client/Auth.ts:124:28)
+    at refreshJwt (http://localhost:9000/src/client/Auth.ts:114:22)
+    at userAuth (http://localhost:9000/src/client/Auth.ts:71:13)
+    at Client.initialize (http://localhost:9000/src/client/Main.ts?t=1772668081241:303:15)
+[warning] No JWT found and shouldRefresh is false
+[error] Access to fetch at 'https://g2.gumgum.com/hbid/imp?displaymanager=Prebid.js%20-%20gumgum&displaymanagerver=9.53.3&lt=1772668093370&to=360&id5Id=ID5*KjSY-nebR57ueTFQwYElAYSVdESQxDFQwYElAYSVdET__2moxLxaAQEBCmmoxLwAjmsJCK4j6Z8QdT12d90Yig&id5IdLinkType=null&aun=standard_iab_left2&id5id=ID5*KjSY-nebR57ueTFQwYElAYSVdESQxDFQwYElAYSVdET__2moxLxaAQEBCmmoxLwAjmsJCK4j6Z8QdT12d90Yig&lotamePanoramaId=0cfc3fb2a505ade1bd678643f26e16d53938995a9d7f8fdca0f72ad43e37be2d&pubcid=7dd3362d-47e2-4811-a53a-d536a86ee274&fabrickId=E1%3AkQj6sEnQ_mPQOq2FithUhvvfL5kFlRjEzzUozqTjWo4jc8QCPTNFi3n55Ho1Bm8waylUdH4zp9fwFi5KwbJjHgGgTUoBOHuxcAYVkx1tMSE&33acrossId=v1.0014000001YrMoYAAV.1051.OhqE8K88IdkyiUlqTk4VG9TFZ9cws6S4ezppSm2LkIKSXf%2BMg5rSUpU%2BAxe8SI9FsKZaKVsX89YFzhbDDbkdrXyMyP0nFUS1jMAm9Ojuw9C4YvPnomooB0UKdGc78qM%2FhP%2F5zIVHHLninzxpkTIMDTOYwOJFB6XzSDQEiOLPW8ZLHO42jrgbZ2JYATQgK1lkcMU5gXagPtbHuXppwXDzVLDPpTztxaURBUwMo51l98dRRUF1gbNQyvmo9%2Fo28%2FvSLSMnB1r0ssDfDznG3xQkpHVAjfzOXjNkl%2FYZjERRt6JZGL7rGVPxv99zrbrU0p39WF2QXhOkUJnSgpsiCA0%2B9b4cGG%2BBG%2FD51nkVfjR62I2xfRidi9qW%2BqziYrk1r5Xy0QV2ewlq9ifjco8P7V58cKEQ0cxXIUjokRiR2NQt78hJnhs8Qv7rAfIi1KsKHQyXRXe0ElMgxVs6xO%2Fnlx6sIv0ppg1oxNwdP9l7gCutBX4J3D0woYYCqbQ7ddhXrx4tJra0YGFsYvo7HISYQ2%2B3%2FdKD4WPODHVfQ%2BEkLZXd09tOYW8SxYwQ4J5QCio17uHUR9cG68oN2m0%2BOxhXfpFR6yyl2WXTj53CvWHA3g5Cl%2FdxHmqdfsrJE5%2Fnwg3zMzvNljD0dBa71hJk4Cyc0o5FjaDoPXLRmdpJp2hDWiTK%2Fp6oopajUpKkOOoBkIoAz9EthhDUmFDDSCTROhJQjYOJJNRlt5SZEbEtB%2FfCKEkIO9ih%2BVfiM9XpQ3klJ%2BzX8mLi2nbcGdaJCymKZPBgVRLd0eoX%2F3hLOAMFZiWIGPj%2BcyJicOLdiLjpVuVKBPT85GF8GsKuUdDmTo08bE6FP8jSsT3l%2BydxbsQ5Wqln9ihIWPkzWhAmoE%2FC8pg0aexKgx0ewRSPO0U6uJvEt4dlfkOhziCIhQac5AxntvvK%2FVSeF2S8y0kiNOLuqZWWhqoYTrCFAxdRlP1RLZgiztIutVwPBsa1wWzD3CflBouc1vU89ysbWXvKAoB9HgQwn7AJadyS%2Bp270KlWs%2FtgNc0N6Guq7ULtzUh6WbSxyb%2B68MHTgVYbyN3r4HHjehthimF5GeO5zaP%2FavPr8Jf1%2BL8CX22ey6k%2FXYwhMmKvqm9YYicj6EQtZ6NssnvuGFLI%2FCzoCtiYP4l4PA6%2Bb15rM3mlTLkM8alXPe7cWyYpvmgackE1zGKvOuvcThKHPCuUDkjRAVOjZq7ftr3UbhN6eTFGF8Xco2ev2hPtsFdkGkeJNHKCtYyMmvhOgf5M4iGRqKRsOTR8HYjquc10CEmPupdrnJDsSQ%3D%3D&criteoId=QPr7b19KZzBLSGpYamdrNzNCMWJ2cVRFY0xvM1BUQjlJOVBFT0dNUEhnNEFPJTJGQVklMkI0MjlkMjQ1MXRkdkhBRXluSk5sQU1QVUJJZTAlMkJRQ2RMUXRBWERCZGs2QSUzRCUzRA&gpid=%2F154013155%2C23296747566%2F1025558%2F75940%2F1025558-w%3A75940-standard_iab%2F1025558-w%3A75940-standard_iab-ROS%2F1025558-w%3A75940-standard_iab-ROS-left2&fp=0.04&fpc=USD&t=8ylgv2wd&pi=3&maxw=300&maxh=600&si=1111719&bf=120x600%2C160x600%2C300x250%2C300x600&ae=true&schain=1.0%2C1!playwire.com%2C1025558%2C1%2C%2C%2C&tId=cf80e753-4d88-487f-9d33-cbda12c8a134&vw=1280&vh=720&sw=1280&sh=720&pu=http%3A%2F%2Flocalhost%3A9000%2F&tpl=http%3A%2F%2Flocalhost%3A9000%2F&ce=true&dpr=1&jcsi=%7B%22t%22%3A0%2C%22rq%22%3A8%2C%22pbv%22%3A%229.53.3%22%7D&ogu=https%3A%2F%2Fopenfront.io%2F&ns=9830&ua=Mozilla%2F5.0%20(Windows%20NT%2010.0%3B%20Win64%3B%20x64)%20AppleWebKit%2F537.36%20(KHTML%2C%20like%20Gecko)%20HeadlessChrome%2F145.0.7632.6%20Safari%2F537.36&sua=%7B%22source%22%3A1%2C%22platform%22%3A%7B%22brand%22%3A%22Windows%22%7D%2C%22browsers%22%3A%5B%7B%22brand%22%3A%22Not%3AA-Brand%22%2C%22version%22%3A%5B%2299%22%5D%7D%2C%7B%22brand%22%3A%22HeadlessChrome%22%2C%22version%22%3A%5B%22145%22%5D%7D%2C%7B%22brand%22%3A%22Chromium%22%2C%22version%22%3A%5B%22145%22%5D%7D%5D%2C%22mobile%22%3A0%7D&dnt=0&lang=en' from origin 'http://localhost:9000' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.
+[error] Failed to load resource: net::ERR_FAILED
+[error] Access to fetch at 'https://g2.gumgum.com/hbid/imp?displaymanager=Prebid.js%20-%20gumgum&displaymanagerver=9.53.3&lt=1772668093370&to=360&id5Id=ID5*KjSY-nebR57ueTFQwYElAYSVdESQxDFQwYElAYSVdET__2moxLxaAQEBCmmoxLwAjmsJCK4j6Z8QdT12d90Yig&id5IdLinkType=null&aun=standard_iab_rght1&id5id=ID5*KjSY-nebR57ueTFQwYElAYSVdESQxDFQwYElAYSVdET__2moxLxaAQEBCmmoxLwAjmsJCK4j6Z8QdT12d90Yig&lotamePanoramaId=0cfc3fb2a505ade1bd678643f26e16d53938995a9d7f8fdca0f72ad43e37be2d&pubcid=7dd3362d-47e2-4811-a53a-d536a86ee274&fabrickId=E1%3AkQj6sEnQ_mPQOq2FithUhvvfL5kFlRjEzzUozqTjWo4jc8QCPTNFi3n55Ho1Bm8waylUdH4zp9fwFi5KwbJjHgGgTUoBOHuxcAYVkx1tMSE&33acrossId=v1.0014000001YrMoYAAV.1051.OhqE8K88IdkyiUlqTk4VG9TFZ9cws6S4ezppSm2LkIKSXf%2BMg5rSUpU%2BAxe8SI9FsKZaKVsX89YFzhbDDbkdrXyMyP0nFUS1jMAm9Ojuw9C4YvPnomooB0UKdGc78qM%2FhP%2F5zIVHHLninzxpkTIMDTOYwOJFB6XzSDQEiOLPW8ZLHO42jrgbZ2JYATQgK1lkcMU5gXagPtbHuXppwXDzVLDPpTztxaURBUwMo51l98dRRUF1gbNQyvmo9%2Fo28%2FvSLSMnB1r0ssDfDznG3xQkpHVAjfzOXjNkl%2FYZjERRt6JZGL7rGVPxv99zrbrU0p39WF2QXhOkUJnSgpsiCA0%2B9b4cGG%2BBG%2FD51nkVfjR62I2xfRidi9qW%2BqziYrk1r5Xy0QV2ewlq9ifjco8P7V58cKEQ0cxXIUjokRiR2NQt78hJnhs8Qv7rAfIi1KsKHQyXRXe0ElMgxVs6xO%2Fnlx6sIv0ppg1oxNwdP9l7gCutBX4J3D0woYYCqbQ7ddhXrx4tJra0YGFsYvo7HISYQ2%2B3%2FdKD4WPODHVfQ%2BEkLZXd09tOYW8SxYwQ4J5QCio17uHUR9cG68oN2m0%2BOxhXfpFR6yyl2WXTj53CvWHA3g5Cl%2FdxHmqdfsrJE5%2Fnwg3zMzvNljD0dBa71hJk4Cyc0o5FjaDoPXLRmdpJp2hDWiTK%2Fp6oopajUpKkOOoBkIoAz9EthhDUmFDDSCTROhJQjYOJJNRlt5SZEbEtB%2FfCKEkIO9ih%2BVfiM9XpQ3klJ%2BzX8mLi2nbcGdaJCymKZPBgVRLd0eoX%2F3hLOAMFZiWIGPj%2BcyJicOLdiLjpVuVKBPT85GF8GsKuUdDmTo08bE6FP8jSsT3l%2BydxbsQ5Wqln9ihIWPkzWhAmoE%2FC8pg0aexKgx0ewRSPO0U6uJvEt4dlfkOhziCIhQac5AxntvvK%2FVSeF2S8y0kiNOLuqZWWhqoYTrCFAxdRlP1RLZgiztIutVwPBsa1wWzD3CflBouc1vU89ysbWXvKAoB9HgQwn7AJadyS%2Bp270KlWs%2FtgNc0N6Guq7ULtzUh6WbSxyb%2B68MHTgVYbyN3r4HHjehthimF5GeO5zaP%2FavPr8Jf1%2BL8CX22ey6k%2FXYwhMmKvqm9YYicj6EQtZ6NssnvuGFLI%2FCzoCtiYP4l4PA6%2Bb15rM3mlTLkM8alXPe7cWyYpvmgackE1zGKvOuvcThKHPCuUDkjRAVOjZq7ftr3UbhN6eTFGF8Xco2ev2hPtsFdkGkeJNHKCtYyMmvhOgf5M4iGRqKRsOTR8HYjquc10CEmPupdrnJDsSQ%3D%3D&criteoId=QPr7b19KZzBLSGpYamdrNzNCMWJ2cVRFY0xvM1BUQjlJOVBFT0dNUEhnNEFPJTJGQVklMkI0MjlkMjQ1MXRkdkhBRXluSk5sQU1QVUJJZTAlMkJRQ2RMUXRBWERCZGs2QSUzRCUzRA&gpid=%2F154013155%2C23296747566%2F1025558%2F75940%2F1025558-w%3A75940-standard_iab%2F1025558-w%3A75940-standard_iab-ROS%2F1025558-w%3A75940-standard_iab-ROS-rght1&fp=0.04&fpc=USD&t=8ylgv2wd&pi=3&maxw=300&maxh=600&si=1111719&bf=120x600%2C160x600%2C300x250%2C300x600&ae=true&schain=1.0%2C1!playwire.com%2C1025558%2C1%2C%2C%2C&tId=63b65d39-877e-4b08-9428-fa3bc44bc086&vw=1280&vh=720&sw=1280&sh=720&pu=http%3A%2F%2Flocalhost%3A9000%2F&tpl=http%3A%2F%2Flocalhost%3A9000%2F&ce=true&dpr=1&jcsi=%7B%22t%22%3A0%2C%22rq%22%3A8%2C%22pbv%22%3A%229.53.3%22%7D&ogu=https%3A%2F%2Fopenfront.io%2F&ns=9830&ua=Mozilla%2F5.0%20(Windows%20NT%2010.0%3B%20Win64%3B%20x64)%20AppleWebKit%2F537.36%20(KHTML%2C%20like%20Gecko)%20HeadlessChrome%2F145.0.7632.6%20Safari%2F537.36&sua=%7B%22source%22%3A1%2C%22platform%22%3A%7B%22brand%22%3A%22Windows%22%7D%2C%22browsers%22%3A%5B%7B%22brand%22%3A%22Not%3AA-Brand%22%2C%22version%22%3A%5B%2299%22%5D%7D%2C%7B%22brand%22%3A%22HeadlessChrome%22%2C%22version%22%3A%5B%22145%22%5D%7D%2C%7B%22brand%22%3A%22Chromium%22%2C%22version%22%3A%5B%22145%22%5D%7D%5D%2C%22mobile%22%3A0%7D&dnt=0&lang=en' from origin 'http://localhost:9000' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.
+[error] Failed to load resource: net::ERR_FAILED
+[error] Failed to load resource: the server responded with a status of 422 ()
+[error] Failed to load resource: the server responded with a status of 400 ()
+[error] Failed to load resource: the server responded with a status of 400 (Bad Request)
+[error] Failed to load resource: the server responded with a status of 422 ()
+[error] Failed to load resource: the server responded with a status of 410 (Gone)
+[error] Failed to load resource: the server responded with a status of 410 (Gone)
+[error] Failed to load resource: the server responded with a status of 404 ()
+[error] Failed to load resource: the server responded with a status of 400 (Bad Request)
+[error] Failed to load resource: the server responded with a status of 400 (Bad Request)
+[error] Failed to load resource: the server responded with a status of 400 ()
+[error] Failed to load resource: the server responded with a status of 400 ()
+[error] Failed to load resource: the server responded with a status of 400 ()
+[error] Failed to load resource: the server responded with a status of 404 ()
+[error] Failed to load resource: the server responded with a status of 400 ()
+[error] Failed to load resource: net::ERR_HTTP2_SERVER_REFUSED_STREAM
+[error] Failed to load resource: the server responded with a status of 403 ()
+[error] Refused to display 'https://gum.aidemsrv.com/' in a frame because it set 'X-Frame-Options' to 'sameorigin'.
+[error] Failed to load resource: the server responded with a status of 404 ()
+[error] Failed to load resource: the server responded with a status of 403 ()
+[error] Refused to display 'https://gum.aidemsrv.com/' in a frame because it set 'X-Frame-Options' to 'sameorigin'.
+[error] Failed to load resource: net::ERR_HTTP2_SERVER_REFUSED_STREAM
+[error] Failed to load resource: the server responded with a status of 404 ()
+[error] Failed to load resource: net::ERR_HTTP2_SERVER_REFUSED_STREAM

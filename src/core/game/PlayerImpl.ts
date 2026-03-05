@@ -63,7 +63,7 @@ class Donation {
   constructor(
     public readonly recipient: Player,
     public readonly tick: Tick,
-  ) { }
+  ) {}
 }
 
 export class PlayerImpl implements Player {
@@ -71,7 +71,6 @@ export class PlayerImpl implements Player {
   public _pseudo_random: PseudoRandom;
 
   private _gold: bigint;
-  private _oil: bigint;
   private _troops: bigint;
 
   markedTraitorTick = -1;
@@ -118,7 +117,6 @@ export class PlayerImpl implements Player {
     this._name = playerInfo.name;
     this._troops = toInt(startTroops);
     this._gold = mg.config().startingGold(playerInfo);
-    this._oil = 0n;
     this._displayName = this._name;
     this._pseudo_random = new PseudoRandom(simpleHash(this.playerInfo.id));
   }
@@ -143,7 +141,7 @@ export class PlayerImpl implements Player {
       isDisconnected: this.isDisconnected(),
       tilesOwned: this.numTilesOwned(),
       gold: this._gold,
-      oil: this._oil,
+
       troops: this.troops(),
       allies: this.alliances().map((a) => a.other(this).smallID()),
       embargoes: new Set([...this.embargoes.keys()].map((p) => p.toString())),
@@ -180,7 +178,7 @@ export class PlayerImpl implements Player {
             hasExtensionRequest:
               a.expiresAt() <=
               this.mg.ticks() +
-              this.mg.config().allianceExtensionPromptOffset(),
+                this.mg.config().allianceExtensionPromptOffset(),
           }) satisfies AllianceView,
       ),
       hasSpawned: this.hasSpawned(),
@@ -364,21 +362,6 @@ export class PlayerImpl implements Player {
   }
   setTroops(troops: number) {
     this._troops = toInt(troops);
-  }
-  oil(): bigint {
-    return this._oil;
-  }
-  addOil(oil: bigint) {
-    this._oil += oil;
-  }
-  removeOil(oil: bigint): bigint {
-    if (this._oil >= oil) {
-      this._oil -= oil;
-      return oil;
-    }
-    const removed = this._oil;
-    this._oil = 0n;
-    return removed;
   }
   conquer(tile: TileRef) {
     this.mg.conquer(this, tile);
@@ -1057,7 +1040,7 @@ export class PlayerImpl implements Player {
   ): BuildableUnit[] {
     const validTiles =
       tile !== null &&
-        (units === undefined || units.some((u) => isStructureType(u)))
+      (units === undefined || units.some((u) => isStructureType(u)))
         ? this.validStructureSpawnTiles(tile)
         : [];
     return Object.values(UnitType)
@@ -1136,7 +1119,6 @@ export class PlayerImpl implements Player {
       case UnitType.SAMLauncher:
       case UnitType.City:
       case UnitType.Factory:
-      case UnitType.ExtractionSite:
         return this.landBasedStructureSpawn(targetTile, validTiles);
       default:
         assertNever(unitType);
@@ -1300,9 +1282,11 @@ export class PlayerImpl implements Player {
     );
   }
   toString(): string {
-    return `Player:{name:${this.info().name},clientID:${this.info().clientID
-      },isAlive:${this.isAlive()},troops:${this._troops
-      },numTileOwned:${this.numTilesOwned()}}]`;
+    return `Player:{name:${this.info().name},clientID:${
+      this.info().clientID
+    },isAlive:${this.isAlive()},troops:${
+      this._troops
+    },numTileOwned:${this.numTilesOwned()}}]`;
   }
 
   public playerProfile(): PlayerProfile {

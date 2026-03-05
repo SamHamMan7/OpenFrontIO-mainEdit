@@ -484,11 +484,11 @@ export class ClientGameRunner {
             // Filter out pause intents in replays
             this.gameView.config().isReplay()
               ? {
-                  ...message.turn,
-                  intents: message.turn.intents.filter(
-                    (i) => i.type !== "toggle_pause",
-                  ),
-                }
+                ...message.turn,
+                intents: message.turn.intents.filter(
+                  (i) => i.type !== "toggle_pause",
+                ),
+              }
               : message.turn,
           );
           this.turnsSeen++;
@@ -554,6 +554,7 @@ export class ClientGameRunner {
           new SendAttackIntentEvent(
             this.gameView.owner(tile).id(),
             this.myPlayer!.troops() * this.renderer.uiState.attackRatio,
+            tile,
           ),
         );
       } else if (this.canAutoBoat(actions, tile)) {
@@ -673,6 +674,7 @@ export class ClientGameRunner {
           new SendAttackIntentEvent(
             this.gameView.owner(tile).id(),
             this.myPlayer!.troops() * this.renderer.uiState.attackRatio,
+            tile,
           ),
         );
       }

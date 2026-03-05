@@ -23,7 +23,7 @@ import {
   StampedIntent,
   Turn,
 } from "../core/Schemas";
-import { createPartialGameRecord, getClanTag } from "../core/Util";
+import { createPartialGameRecord, generateID, getClanTag } from "../core/Util";
 import { archive, finalizeGameRecord } from "./Archive";
 import { Client } from "./Client";
 export enum GamePhase {
@@ -615,16 +615,32 @@ export class GameServer {
     // if no client connects/pings.
     this.lastPingUpdate = Date.now();
 
+    const players = this.activeClients.map((c) => ({
+      username: c.username,
+      clientID: c.clientID,
+      cosmetics: c.cosmetics,
+      isLobbyCreator: this.lobbyCreatorID === c.clientID,
+      isBot: false,
+    }));
+
+    if (this.gameConfig.gameType === GameType.Public && this.gameConfig.maxPlayers) {
+      const botsNeeded = this.gameConfig.maxPlayers - players.length;
+      for (let i = 0; i < botsNeeded; i++) {
+        players.push({
+          username: `Bot ${i + 1}`,
+          clientID: generateID(),
+          cosmetics: undefined,
+          isLobbyCreator: false,
+          isBot: true,
+        });
+      }
+    }
+
     const result = GameStartInfoSchema.safeParse({
       gameID: this.id,
       lobbyCreatedAt: this.createdAt,
       config: this.gameConfig,
-      players: this.activeClients.map((c) => ({
-        username: c.username,
-        clientID: c.clientID,
-        cosmetics: c.cosmetics,
-        isLobbyCreator: this.lobbyCreatorID === c.clientID,
-      })),
+      players,
     });
     if (!result.success) {
       const error = z.prettifyError(result.error);

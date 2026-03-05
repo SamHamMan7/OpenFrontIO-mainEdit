@@ -147,6 +147,9 @@ export interface Config {
   warshipPatrolRange(): number;
   warshipShellAttackRate(): number;
   warshipTargettingRange(): number;
+  warshipPortHealAmountBase(): number;
+  warshipPortHealAmountBonus(): number;
+  warshipPortHealRange(): number;
   defensePostShellAttackRate(): number;
   defensePostTargettingRange(): number;
   // 0-1
