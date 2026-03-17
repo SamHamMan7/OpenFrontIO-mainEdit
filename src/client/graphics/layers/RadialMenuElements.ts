@@ -1,4 +1,5 @@
 import { Config } from "../../../core/configuration/Config";
+import { UserSettings } from "../../../core/game/UserSettings";
 import {
   AllPlayers,
   PlayerActions,
@@ -481,6 +482,23 @@ export const attackMenuElement: MenuElement = {
   },
 };
 
+export const targetedAttackMenuElement: MenuElement = {
+  id: "targeted_attack",
+  name: "targeted_attack",
+  disabled: (params: MenuElementParams) => params.game.inSpawnPhase(),
+  displayed: () => new UserSettings().targetedAttacks(),
+  icon: targetIcon,
+  color: COLORS.attack,
+  action: (params: MenuElementParams) => {
+    params.playerActionHandler.handleAttack(
+      params.myPlayer,
+      params.selected?.id() ?? null,
+      params.tile
+    );
+    params.closeMenu();
+  }
+};
+
 const donateGoldRadialElement: MenuElement = {
   id: Slot.Attack,
   name: "radial_donate_gold",
@@ -703,6 +721,7 @@ export const rootMenuElement: MenuElement = {
           isFriendlyTarget(params) && !isDisconnected
             ? donateGoldRadialElement
             : attackMenuElement,
+          isFriendlyTarget(params) || isDisconnected ? null : targetedAttackMenuElement,
         ]),
     ];
 

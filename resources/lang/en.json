@@ -773,7 +773,8 @@
     "unit_captured_by_enemy": "Your {unit} was captured by {name}",
     "captured_enemy_unit": "Captured {unit} from {name}",
     "unit_destroyed": "Your {unit} was destroyed",
-    "no_boats_available": "No boats available, max {max}"
+    "no_boats_available": "No boats available, max {max}",
+    "territory_encircled": "Warning: Territory encircled! Annexation in 3 seconds!"
   },
   "player_type": {
     "player": "Player",

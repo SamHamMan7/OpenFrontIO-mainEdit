@@ -108,6 +108,14 @@ export class UserSettings {
     this.set("settings.focusLocked", !this.focusLocked());
   }
 
+  targetedAttacks() {
+    return this.get("settings.targetedAttacks", true);
+  }
+
+  toggleTargetedAttacks() {
+    this.set("settings.targetedAttacks", !this.targetedAttacks());
+  }
+
   toggleEmojis() {
     this.set("settings.emojis", !this.emojis());
   }

@@ -5,6 +5,7 @@ import {
   Game,
   isStructureType,
   Player,
+  MessageType,
   UnitType,
 } from "../game/Game";
 import { TileRef } from "../game/GameMap";
@@ -18,13 +19,22 @@ interface ClusterTraversalState {
 // Per-game traversal state used by calculateClusters() to avoid per-player buffers.
 const traversalStates = new WeakMap<Game, ClusterTraversalState>();
 
+interface PendingAnnexation {
+  cluster: Set<TileRef>;
+  capturingPlayer: Player;
+  executeAtTick: number;
+}
+
 export class PlayerExecution implements Execution {
   private readonly ticksPerClusterCalc = 20;
+  private readonly ticksToAnnex = 30; // 3 seconds at 10 ticks/sec
 
   private config: Config;
   private lastCalc = 0;
   private mg: Game;
   private active = true;
+
+  private pendingAnnexations: PendingAnnexation[] = [];
 
   constructor(private player: Player) {}
 
@@ -107,6 +117,35 @@ export class PlayerExecution implements Execution {
           console.log(`player ${this.player.name()}, took ${end - start}ms`);
         }
       }
+    }
+
+    this.processPendingAnnexations(ticks);
+  }
+
+  private processPendingAnnexations(currentTick: number) {
+    // Process annexations that have reached their execution time
+    const toExecute = this.pendingAnnexations.filter(
+      (a) => currentTick >= a.executeAtTick
+    );
+    this.pendingAnnexations = this.pendingAnnexations.filter(
+      (a) => currentTick < a.executeAtTick
+    );
+
+    for (const annexation of toExecute) {
+      if (!this.player.isAlive()) continue;
+
+      // Verify cluster again (troops may have broken out)
+      let allStillOwned = true;
+      for (const t of annexation.cluster) {
+        if (this.mg?.ownerID(t) !== this.player?.smallID()) {
+          allStillOwned = false;
+          break;
+        }
+      }
+
+      if (!allStillOwned) continue;
+      
+      this.executeAnnexation(annexation.cluster, annexation.capturingPlayer);
     }
   }
 
@@ -235,6 +274,27 @@ export class PlayerExecution implements Execution {
       return;
     }
 
+    const firstTile = cluster.values().next().value;
+    if (!firstTile) {
+      return;
+    }
+
+    // Schedule annexation instead of executing immediately
+    this.pendingAnnexations.push({
+      cluster: new Set(cluster),
+      capturingPlayer: capturing,
+      executeAtTick: this.mg.ticks() + this.ticksToAnnex,
+    });
+
+    // Send a warning message
+    this.mg.displayMessage(
+      "events_display.territory_encircled",
+      MessageType.TERRITORY_ENCIRCLED,
+      this.player.id()
+    );
+  }
+
+  private executeAnnexation(cluster: Set<TileRef>, capturing: Player) {
     const firstTile = cluster.values().next().value;
     if (!firstTile) {
       return;
