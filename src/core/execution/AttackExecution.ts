@@ -112,7 +112,10 @@ export class AttackExecution implements Execution {
     );
 
     if (this.sourceTile !== null) {
-      if (this.mg.config().gameConfig().weightedAttacks) {
+      if (this.mg.owner(this.sourceTile) === this._owner) {
+        // Boat attack landing zone, or explicitly an attacker border tile (Bots)
+        this.addNeighbors(this.sourceTile);
+      } else if (this.mg.config().gameConfig().weightedAttacks) {
         let closestBorder: TileRef | null = null;
         let minDistance = Infinity;
         for (const tile of this._owner.borderTiles()) {
@@ -127,10 +130,11 @@ export class AttackExecution implements Execution {
         if (closestBorder !== null) {
           this.addNeighbors(closestBorder);
         } else {
-          this.addNeighbors(this.sourceTile);
+          this.refreshToConquer();
         }
       } else {
-        this.addNeighbors(this.sourceTile);
+        // Clicked a tile but weighted attacks are off, just do a normal attack
+        this.refreshToConquer();
       }
     } else {
       this.refreshToConquer();
@@ -367,8 +371,20 @@ export class AttackExecution implements Execution {
           break;
       }
 
+      let distancePenalty = 0;
+      if (
+        this.sourceTile !== null && 
+        this.mg.config().gameConfig().weightedAttacks &&
+        this.mg.owner(this.sourceTile) !== this._owner
+      ) {
+        // Lower priority for tiles closer to the target
+        // (Queue pops lowest priority first)
+        distancePenalty = this.mg.manhattanDist(neighbor, this.sourceTile) * 2;
+      }
+
       const priority =
         (this.random.nextInt(0, 7) + 10) * (1 - numOwnedByMe * 0.5 + mag / 2) +
+        distancePenalty +
         tickNow;
 
       this.toConquer.enqueue(neighbor, priority);
